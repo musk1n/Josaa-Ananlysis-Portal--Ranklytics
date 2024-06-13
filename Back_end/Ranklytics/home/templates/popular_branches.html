@@ -1,0 +1,110 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POPULAR BRANCH TREND</title>
+    <link rel="icon" href="../static/icon1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../static/popular_branches.css">
+    
+    
+</head>
+<body>
+    <video id="video" autoplay muted loop>
+        <source src="../static/greeny.mp4 " type="video/mp4">
+    </video>
+    <div class="header">
+        <div class="container">
+            <a href="{%url 'home'%}"id="logo">
+                <img src="../static/assets/logo.png">
+            </a>
+            <div class="tabs">
+                <ul>
+                    <li><a href="{%url 'home'%}" target="_blank">Home</a></li>
+                    <li><a href="{%url 'about'%}"target="_blank">About Us</a></li>
+                    <li><a href="{%url 'slider'%}"target="_blank">Back</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="instructions">
+       <p>BELOW TWO GRAPHS SHOWS THE TREND OF AVG RANK IN TOP 10 BRANCHES</p>
+       <p>SCROLL DOWN TO EXPLORE!</p> 
+       
+    </div>
+<div id="glass">
+    
+    
+         <div id="plotly-graph">
+            {{ graph | safe }}  <!-- Render the bar Plotly graph here -->
+        </div> 
+    
+    
+           <!-- Place to display the trend graph -->
+         <div id="plotly-trend-graph">
+        {{ trend_graph | safe }}  <!-- Render the trend Plotly graph here -->
+        </div> 
+        <div id="textbox">
+        <p id="text">YOU CAN SELECT WHICH GRAPHS TO STUDY BY CLICKING ON THE GRAPH LINES IN LEGEND</p>
+        </div>
+    
+</div>
+
+    <!-- Include JavaScript for hover functionality -->
+    <script>
+        var myPlot = document.getElementsByClassName('plotly-graph-div')[0];
+
+        myPlot.on('plotly_hover', function(data){
+            var index = data.points[0].curveNumber;
+            Plotly.restyle(myPlot, 'opacity', Array.from({length: data.points.length}, (_, i) => i === index ? 1 : 0.2));
+        });
+        
+        
+        
+    </script>
+    
+        
+            
+        </div>
+    </div>
+</body>
+</html>
+
+ 
+   
+   
+   
+   
+   
+   
+   
+     {% comment %} <div id="plotly-graph">
+        {{ graph | safe }}  <!-- Render the bar Plotly graph here -->
+    </div>
+
+    <!-- Place to display the trend graph -->
+    <div id="plotly-trend-graph">
+        {{ trend_graph | safe }}  <!-- Render the trend Plotly graph here -->
+    </div>
+
+    <!-- Include JavaScript for hover functionality -->
+    <script>
+        var myPlot = document.getElementsByClassName('plotly-graph-div')[0];
+
+        myPlot.on('plotly_hover', function(data){
+            var index = data.points[0].curveNumber;
+            Plotly.restyle(myPlot, 'opacity', Array.from({length: data.points.length}, (_, i) => i === index ? 1 : 0.2));
+        });
+
+        
+    </script>  {% endcomment %}
+

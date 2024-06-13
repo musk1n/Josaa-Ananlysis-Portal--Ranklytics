@@ -1,0 +1,201 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLLEGE_WISE BRANCH TREND</title>
+    <link rel="icon" href="../static/icon1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../static/college_popular_branch.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    
+</head>
+<body>
+    <video id="video" autoplay muted loop>
+        <source src="../static/greeny.mp4 " type="video/mp4">
+    </video>
+    <div class="header">
+        <div class="container">
+            <a href="{%url 'home'%}"id="logo">
+                <img src="../static/assets/logo.png">
+            </a>
+            <div class="tabs">
+                <ul>
+                    <li><a href="{%url 'home'%}" target="_blank">Home</a></li>
+                    <li><a href="{%url 'about'%}"target="_blank">About Us</a></li>
+                    <li><a href="{%url 'slider'%}"target="_blank">Back</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="instructions">
+       <p>BELOW GRAPH SHOWS THE TREND OF AVG RANK IN TOP 10 BRANCHES IN PARTICULAR COLLEGE</p>
+       <p>SCROLL DOWN TO EXPLORE!</p> 
+       
+    </div>
+<div id="glass">
+    <h1>Enter College Name to See Branch Popularity</h1>
+    <form method="POST"id="form">
+        {% csrf_token %}
+        <label for="college_name">College Name:</label>
+        <input type="text" id="college_name" name="college_name" list="colleges">
+        <datalist id="colleges">
+            <option value="Indian Institute  of Technology Bhubaneswar">
+            <option value="Indian Institute  of Technology Bombay">
+            <option value="Indian Institute  of Technology Mandi">
+            <option value="Indian Institute  of Technology Delhi">
+            <option value="Indian Institute  of Technology Indore">
+            <option value="Indian Institute  of Technology Kharagpur">
+            <option value="Indian Institute  of Technology Hyderabad">
+            <option value="Indian Institute  of Technology Jodhpur">
+            <option value="Indian Institute  of Technology Kanpur">
+            <option value="Indian Institute  of Technology Madras">
+            <option value="Indian Institute  of Technology Gandhinagar">
+            <option value="Indian Institute  of Technology Patna">
+            <option value="Indian Institute  of Technology Roorkee">
+            <option value="Indian School of Mines Dhanbad">
+            <option value="Indian Institute  of Technology Ropar">
+            <option value="Indian Institute  of Technology (BHU) Varanasi">
+            <option value="Indian Institute  of Technology Guwahati">
+            <option value="Indian Institute of Technology Bhilai">
+            <option value="Indian Institute of Technology Goa">
+            <option value="Indian Institute  of Technology Palakkad">
+            <option value="Indian Institute  of Technology Tirupati">
+            <option value="Indian Institute of Technology Jammu">
+            <option value="Indian Institute of Technology Dharwad">
+            <option value="Dr. B R Ambedkar National Institute of Technology, Jalandhar">
+            <option value="Malaviya National Institute of Technology Jaipur">
+            <option value="Maulana Azad National Institute of Technology Bhopal">
+            <option value="Motilal Nehru National Institute of Technology Allahabad">
+            <option value="National Institute of Technology  Agartala">
+            <option value="National Institute of Technology Calicut">
+            <option value="National Institute of Technology Delhi">
+            <option value="National Institute of Technology Durgapur">
+            <option value="National Institute of Technology Goa">
+            <option value="National Institute of Technology Hamirpur">
+            <option value="National Institute of Technology Karnataka, Surathkal">
+            <option value="National Institute of Technology Meghalaya">
+            <option value="National Institute of Technology Nagaland">
+            <option value="National Institute of Technology Patna">
+            <option value="National Institute of Technology Puducherry">
+            <option value="National Institute of Technology Raipur">
+            <option value="National Institute of Technology Sikkim">
+            <option value="National Institute of Technology Arunachal Pradesh">
+            <option value="National Institute of Technology, Jamshedpur">
+            <option value="National Institute of Technology, Kurukshetra">
+            <option value="National Institute of Technology, Manipur">
+            <option value="National Institute of Technology, Mizoram">
+            <option value="National Institute of Technology, Rourkela">
+            <option value="National Institute of Technology, Silchar">
+            <option value="National Institute of Technology, Srinagar">
+            <option value="National Institute of Technology, Tiruchirappalli">
+            <option value="National Institute of Technology, Uttarakhand">
+            <option value="National Institute of Technology, Warangal">
+            <option value="Sardar Vallabhbhai National Institute of Technology, Surat">
+            <option value="Visvesvaraya National Institute of Technology, Nagpur">
+            <option value="National Institute of Technology, Andhra Pradesh">
+            <option value="Indian Institute of Engineering Science and Technology, Shibpur">
+            <option value="Atal Bihari Vajpayee Indian Institute of Information Technology & Management Gwalior">
+            <option value="Indian Institute of Information Technology (IIIT)Kota, Rajasthan">
+            <option value="Indian Institute of Information Technology Guwahati">
+            <option value="Indian Institute of Information Technology(IIIT) Kalyani, West Bengal">
+            <option value="Indian Institute of Information Technology(IIIT) Kilohrad, Sonepat, Haryana">
+            <option value="Indian Institute of Information Technology(IIIT) Una, Himachal Pradesh">
+            <option value="Indian Institute of Information Technology(IIIT), Sri City, Chittoor District, Andra Pradesh">
+            <option value="Indian Institute of Information Technology(IIIT), Vadodara, Gujrat">
+            <option value="Indian Institute of Information Technology, Allahabad">
+            <option value="Indian Institute of Information Technology, Design & Manufacturing, Kancheepuram">
+            <option value="Pt. Dwarka Prasad Mishra Indian Institute of Information Technology, Design & Manufacture Jabalpur">
+            <option value="Indian Institute of Information Technology  Manipur">
+            <option value="Indian Institute of Information Technology Srirangam, Tiruchirappalli">
+            <option value="Indian Institute of Information Technology Lucknow">
+            <option value="Indian Institute of Information Technology(IIIT) Dharwad">
+            <option value="Indian Institute of Information Technology Design & Manufacturing Kurnool, Andhra Pradesh">
+            <option value="Indian Institute of Information Technology(IIIT) Kottayam">
+            <option value="Indian Institute of Information Technology (IIIT) Ranchi">
+            <option value="Indian Institute of Information Technology (IIIT) Nagpur">
+            <option value="Indian Institute of Information Technology (IIIT) Pune">
+            <option value="Assam University, Silchar">
+            <option value="Birla Institute of Technology, Mesra,  Ranchi">
+            <option value="Gurukula Kangri Vishwavidyalaya, Haridwar">
+            <option value="Indian Institute of Carpet Technology,  Bhadohi">
+            <option value="Institute of Infrastructure, Technology, Research and Management-Ahmedabad">
+            <option value="Institute of Technology, Guru Ghasidas Vishwavidyalaya (A Central University), Bilaspur, (C.G.)">
+            <option value="J.K. Institute of Applied Physics & Technology, Department of Electronics & Communication, University of Allahabad- Allahabad">
+            <option value="National Institute of Electronics and Information Technology, Aurangabad (Maharashtra)">
+            <option value="National Institute of Foundry & Forge Technology, Hatia, Ranchi">
+            <option value="Sant Longowal Institute of Engineering and Technology">
+            <option value="Mizoram University, Aizawl">
+            <option value="School of Engineering, Tezpur University, Napaam, Tezpur">
+            <option value="School of Planning & Architecture, Bhopal">
+            <option value="School of Planning & Architecture, New Delhi">
+            <option value="School of Planning & Architecture: Vijayawada">
+            <option value="Shri Mata Vaishno Devi University, Katra, Jammu & Kashmir">
+            <option value="Indian Institute of Crop Processing Technology, Thanjavur, Tamilnadu">
+            <option value="Indian Institute  of Technology (ISM) Dhanbad">
+            <option value="Indian Institute of Information Technology(IIIT), Sri City, Chittoor District, Andhra Pradesh">
+            <option value="Indian Institute of Information Technology Bhagalpur">
+            <option value="Indian Institute of Information Technology Bhopal">
+            <option value="Indian Institute of Information Technology Surat">
+            <option value="HNB Garhwal University Srinagar (Garhwal)">
+            <option value="International Institute of Information Technology, Naya Raipur">
+            <option value="University of Hyderabad">
+            <option value="Indian Institute of Information Technology (IIIT), Sri City, Chittoor">
+            <option value="Punjab Engineering College, Chandigarh">
+            <option value="Jawaharlal Nehru University, Delhi">
+            <option value="International Institute of Information Technology, Bhubaneswar">
+            <option value="Indian Institute of Information Technology, Agartala">
+            <option value="Indian institute of information technology, Raichur, Karnataka">
+            <option value="Central institute of Technology Kokrajar, Assam">
+            <option value="Pondicherry Engineering College, Puducherry">
+            <option value="Ghani Khan Choudhary Institute of Engineering and Technology, Malda, West Bengal">
+            <option value="Central University of Rajasthan, Rajasthan">
+            <option value="National Institute of Food Technology Entrepreneurship and Management, Sonepat, Haryana">
+            <option value="Indian Institute of Information Technology, Vadodara International Campus Diu (IIITVICD)">
+            <option value="lndian Institute of Food Processing Technology, Thanjavur, Tamil Naidu.">
+            <option value="North Eastern Regional Institute of Science and Technology, Nirjuli-791109 (Itanagar),Arunachal Pradesh">
+            <option value="Indian Institute of Information Technology Tiruchirappalli">
+            <option value="Indian Institute of Handloom Technology(IIHT), Varanasi">
+            <option value="Chhattisgarh Swami Vivekanada Technical University, Bhilai (CSVTU Bhilai)">
+            <option value="Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar">
+            <option value="North-Eastern Hill University, Shillong">
+            <option value="National Institute of Advanced Manufacturing Technology, Ranchi">
+            <option value="Puducherry Technological University, Puducherry">
+            <option value="National Institute of Food Technology, Entrepreneurship and Management (NIFTEM) - Thanjavur">
+            <option value="Central University of Jammu">
+            <option value="National Institute of Food Technology Entrepreneurship and Management, Kundli">
+        </datalist>
+        <br><br><button type="submit">Submit</button>
+    </form>
+
+    {% if graph %}
+        
+        <div id="plotly-graph">
+            {{ graph|safe }}  <!-- Render the Plotly graph here -->
+        </div>
+    {% endif %}
+    
+    
+       
+    
+</div>
+    </div>
+    </div>
+    
+    </body>
+    </html>
+
+
+
+
+
+

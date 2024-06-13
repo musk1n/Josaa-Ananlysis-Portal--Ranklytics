@@ -1,0 +1,169 @@
+body{
+    background-color: black;
+}
+#video{
+    position: fixed;
+    left: -20%;
+    top: -20%;
+    max-height: 150%;
+    z-index: -1;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 97%;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#logo{
+    margin-left: 10px;
+}
+.tabs ul{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 10px;
+    list-style: none;
+}
+.tabs ul li a{
+    text-decoration: none;
+    padding: 0px 16px;
+    font-weight: bold;
+    font-family: "Advent Pro", sans-serif;
+    color: white;
+    cursor: pointer;
+}
+.tabs ul li a:hover{
+    color: #0c8b46;
+}
+.tabs ul li a:active{
+    color: #0c8b46;
+    text-decoration: underline;
+}
+#glass {
+    position: absolute;
+    height: 60%;
+    width: 90%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1vh;
+    padding: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    top: 35%;
+    left: 5%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    margin-top: 9px;
+}
+
+#glass::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+#glass::-webkit-scrollbar-thumb {
+    background: rgba(12, 139, 70, 0.8);
+    border-radius: 10px;
+    border: 2px solid transparent; 
+}
+#glass {
+    scrollbar-color: rgba(12, 139, 70, 0.8) rgba(255, 255, 255, 0.1);
+}
+
+.text{
+    color: white;
+    text-align: center;
+}
+#text{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1vh;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+    font-weight: bold;
+    position: relative;
+    left: 740px;
+    bottom: 180%;
+    display: inline-block;
+}
+
+#ploty-graph{
+    position:absolute;
+    top:10vh;
+    z-index:5;
+}
+#ploty-trend-graph{
+    position:relative;
+    top:40vh;
+}
+#instructions {
+    position: absolute;
+    height: 13%;
+    width: 90%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1vh;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    top: 20%;
+    left: 5%;
+    padding: 5px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+
+@media (max-width: 700px){
+    .container {
+        width: 100%;
+        margin: 10px auto;
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .tabs li a {
+        font-size: 19px;
+        text-align: center;
+    }
+    .tabs ul {
+        flex-wrap: wrap-reverse;
+    }
+    .tabs ul li a {
+        font-style: normal;
+        font-size: 15px;
+    }
+    #text{
+        text-align: center;
+        width: 60%;
+        padding: 5px;
+        left: 740px;
+        bottom: 180%;
+        display: inline-block;
+    }
+    #ploty-graph{
+        position:absolute;
+        top:10vh;
+        z-index:5;
+    }
+    #ploty-trend-graph{
+        position:relative;
+        top:40vh;
+    }
+}

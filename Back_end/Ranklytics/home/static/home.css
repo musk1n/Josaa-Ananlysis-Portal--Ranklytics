@@ -1,0 +1,142 @@
+body{
+    background-color: black;
+}
+#video{
+    position: fixed;
+    left: -20%;
+    top: -20%;
+    max-height: 150%;
+    z-index: -1;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 97%;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#logo{
+    margin-left: 10px;
+}
+.tabs ul{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 10px;
+    list-style: none;
+}
+.tabs ul li a{
+    text-decoration: none;
+    padding: 0px 16px;
+    font-weight: bold;
+    font-family: "Advent Pro", sans-serif;
+    color: white;
+    cursor: pointer;
+}
+.tabs ul li a:hover{
+    color: #0c8b46;
+}
+.tabs ul li a:active{
+    color: #0c8b46;
+    text-decoration: underline;
+}
+#glass {
+    position: absolute;
+    height: 75%;
+    width: 90%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 4vh;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    top: 20%;
+    left: 5%;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text{
+    color: white;
+    text-align: center;
+}
+#welcome{
+    font-size: 3.5em;
+    font-family:  "Jaro";
+    color: #0c8b46;
+}
+
+#subt{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+}
+#describe{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+}
+a{
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+#start, #goal{
+    font-size: 1em;
+}
+#goal{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+a:hover{
+    color: #0c8b46;
+    font-size: larger;
+}
+li{
+    font-size: 1.5em;
+}
+#button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px 30px;
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: bold;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+@media (max-width: 700px){
+    .container {
+        width: 100%;
+        margin: 10px auto;
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .tabs li a {
+        font-size: 19px;
+        text-align: center;
+    }
+    .tabs ul {
+        flex-wrap: wrap-reverse;
+    }
+    .tabs ul li a {
+        font-style: normal;
+        font-size: 15px;
+    }
+}

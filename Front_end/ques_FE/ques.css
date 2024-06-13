@@ -1,0 +1,82 @@
+body{
+    background-color: black;
+}
+#video{
+    position: fixed;
+    left: -20%;
+    top: -20%;
+    max-height: 200%;
+    z-index: -1;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 90%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #0c8b46;
+    font-family: "Jaro", 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+}
+#glass {
+    position: absolute;
+    height: 80%;
+    width: 90%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1vh;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    top: 15%;
+    left: 5%;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+#glass::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+#glass::-webkit-scrollbar-thumb {
+    background: rgba(12, 139, 70, 0.8);
+    border-radius: 10px;
+    border: 2px solid transparent; 
+}
+#glass {
+    scrollbar-color: rgba(12, 139, 70, 0.8) rgba(255, 255, 255, 0.1);
+}
+.content{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 5%; 
+    padding-right: 5%;
+    max-height: 95%;
+    width: 95%;
+}
+
+
+/*     TABLE      */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.123); 
+}
+
+tr:hover {
+    background-color: rgba(12, 139, 70, 0.3);
+}
+

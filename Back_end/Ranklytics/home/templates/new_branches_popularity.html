@@ -1,0 +1,112 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEW BRANCH POPULARITY</title>
+    <link rel="icon" href="../static/icon1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../static/new_branches_popularity.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    
+</head>
+<body>
+    <video id="video" autoplay muted loop>
+        <source src="../static/greeny.mp4 " type="video/mp4">
+    </video>
+    <div class="header">
+        <div class="container">
+            <a href="{%url 'home'%}"id="logo">
+                <img src="../static/assets/logo.png">
+            </a>
+            <div class="tabs">
+                <ul>
+                    <li><a href="{%url 'home'%}" target="_blank">Home</a></li>
+                    <li><a href="{%url 'about'%}"target="_blank">About Us</a></li>
+                    <li><a href="{%url 'slider'%}"target="_blank">Back</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="instructions">
+       <p>BELOW 2 GRAPHS SHOWS TREND ANALYSIS OF NEW BRANCHES</p>
+       <p>SCROLL DOWN AFTER SUBMITTING TO EXPLORE!</p> 
+       
+    </div>
+<div id="glass">
+    <form method="POST">
+        {% csrf_token %}
+        <label for="rank_adv">Advanced Rank:</label>
+        <input type="text" id="rank_adv" name="rank_adv" required placeholder="Enter NA if none"><br>
+
+        <label for="rank_mains">Mains Rank:</label>
+        <input type="number" id="rank_mains" name="rank_mains" required><br>
+
+        <label for="seatty">Seat Type:</label>
+        <select id="seatty" name="seatty">
+            <option value="OPEN">OPEN</option>
+            <option value="EWS">EWS</option>
+            <option value="OBC-NCL">OBC-NCL</option>
+            <option value="ST">ST</option>
+            <option value="SC">SC</option>
+            <option value="OPEN (PwD)">OPEN (PwD)</option>
+            <option value="EWS (PwD)">EWS (PwD)</option>
+            <option value="OBC-NCL (PwD)">OBC-NCL (PwD)</option>
+            <option value="SC (PwD)">SC (PwD)</option>
+            <option value="ST (PwD)">ST (PwD)</option>
+        </select><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+
+        <label for="quota">Quota:</label>
+        <select id="quota" name="quota">
+            <option value="AI">AI</option>
+            <option value="HS">HS</option>
+            <option value="OS">OS</option>
+        </select><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    <br><br>
+
+    {% if bar_chart %}
+    
+    <div id="bar-chart">
+        {{ bar_chart|safe }}  <!-- Render the bar chart here -->
+    </div>
+{% endif %}
+<br><br>
+{% if trend_plot %}
+   
+    <div id="trend-plot">
+        {{ trend_plot|safe }}  <!-- Render the trend plot here -->
+    </div>
+    <div id="textbox">
+        <p id="text">YOU CAN SELECT WHICH GRAPHS TO STUDY BY CLICKING ON THE GRAPH LINES IN LEGEND</p>
+    </div>
+{% endif %}
+    
+    
+    
+       
+    
+</div>
+    </div>
+    </div>
+   
+    
+</body>
+</html>

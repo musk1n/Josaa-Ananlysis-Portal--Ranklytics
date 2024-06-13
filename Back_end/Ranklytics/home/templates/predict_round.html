@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Round</title>
+</head>
+<body>
+    <h2>Predict Round</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="seatty">Seat Type:</label>
+        <input type="text" id="seatty" name="seatty"><br><br>
+
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender"><br><br>
+
+        <label for="quota">Quota:</label>
+        <input type="text" id="quota" name="quota"><br><br>
+
+        <label for="target_branch">Target Branch:</label>
+        <input type="text" id="target_branch" name="target_branch"><br><br>
+
+        <label for="target_college">Target College:</label>
+        <input type="text" id="target_college" name="target_college"><br><br>
+
+        <label for="rank">Rank:</label>
+        <input type="text" id="rank" name="rank"><br><br>
+
+        <label for="rank_target">Target Branch Current Closing Rank:</label>
+        <input type="text" id="rank_target" name="rank_target"><br><br>
+
+        <label for="round_no">Current Round Number:</label>
+        <input type="text" id="round_no" name="round_no"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <h2>Predict Round Result</h2>
+    <p>{{ prediction_result }}</p>
+</body>
+</html>

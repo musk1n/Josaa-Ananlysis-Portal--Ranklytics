@@ -1,0 +1,142 @@
+body{
+    background-color: black;
+}
+#video{
+    position: fixed;
+    left: -20%;
+    top: -20%;
+    max-height: 150%;
+    z-index: -1;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 97%;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#logo{
+    margin-left: 10px;
+}
+.tabs ul{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 10px;
+    list-style: none;
+}
+.tabs ul li a{
+    text-decoration: none;
+    padding: 0px 16px;
+    font-weight: bold;
+    font-family: "Advent Pro", sans-serif;
+    color: white;
+    cursor: pointer;
+}
+.tabs ul li a:hover{
+    color: #0c8b46;
+    font-size: larger;
+}
+.tabs ul li a:active{
+    color: #0c8b46;
+    text-decoration: underline;
+}
+li{
+    font-size: 1.5em;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+    padding: 20px;
+}
+
+.glass {
+    position: relative;
+    height: 300px;
+    width: 230px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: visible;
+    top: 24vh;
+}
+.glass img {
+    width: 100%;
+    height: auto;
+    margin-top: -50px;
+    margin-bottom: -4px;
+    z-index: 1;
+    position: relative;
+}
+
+.strip {
+    background-color: #0c8b46;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 2;
+    position: relative;
+    margin-top: -4px;
+}
+
+.mp1, .mp2 {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: white;
+    font-family: "Advent Pro", 'Courier New', Courier, monospace;
+}
+
+@media (max-width: 1230px) {
+    main {
+        justify-content: space-evenly;
+        padding: 0px;
+    }
+    .glass {
+        width: 35%;
+        padding-top: 15%;
+        margin-bottom: 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .tabs ul {
+        justify-content: center;
+        width: 100%;
+    }
+    main {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+    }
+    .glass {
+        width: 100%;
+        margin-top: 10%;
+        margin-bottom: 60%;
+    }
+}
+
+
+
+
+
+
+
+

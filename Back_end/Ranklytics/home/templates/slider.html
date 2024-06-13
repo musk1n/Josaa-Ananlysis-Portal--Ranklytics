@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranklytics</title>
+    <link rel="icon" href="../static/icon1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../static/slider.css">
+    
+    
+</head>
+<body>
+    <video id="video" autoplay muted loop>
+        <source src="../static/greeny.mp4 " type="video/mp4">
+    </video>
+    <div class="header">
+        <div class="container">
+            <a href="{%url 'home'%}"id="logo">
+                <img src="../static/assets/logo.png">
+            </a>
+            <div class="tabs">
+                <ul>
+                    <li><a href="{%url 'home'%}" target="_blank">Home</a></li>
+                    <li><a href="{%url 'about'%}"target="_blank">About Us</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="glass">
+        <div class="text">
+            <div class="buttons">
+           <button id="button"> <a href="{%url 'display_choices'%}"target="_blank"><p id="start">Potential choices</p></a></button><br><br>
+           <button id="button"> <a href="{% url 'popular_branches'%}"target="_blank"><p id="start">Popular branches trend</p></a></button><br><br>
+           <button id="button"> <a href="{% url 'college_branch_popularity'%}"target="_blank"><p id="start">College-wise popular branch trend</p></a></button><br><br>
+           <button id="button"> <a href="{% url 'branch_college_popularity'%}"target="_blank"><p id="start">Branch-wise college popularity</p></a></button><br><br>
+           <button id="button"> <a href="{% url 'branch_college_trend'%}"target="_blank"><p id="start">Branch and college trend over years</p></a></button><br><br>
+           <button id="button"> <a href="{% url 'new_branches_popularity'%}"target="_blank"><p id="start">Demand of new branches</p></a></button><br><br>
+           <button id="button"> <a href="{% url 'preference_view'%}"target="_blank"><p id="start">Preference list generator</p></a></button>
+           </div>
+        </div>
+    </div>
+</body>
+</html>

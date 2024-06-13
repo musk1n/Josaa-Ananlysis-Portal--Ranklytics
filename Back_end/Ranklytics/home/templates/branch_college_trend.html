@@ -1,0 +1,259 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLLEGE_BRANCH TREND</title>
+    <link rel="icon" href="../static/icon1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../static/branchwise_college.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    
+</head>
+<body>
+    <video id="video" autoplay muted loop>
+        <source src="../static/greeny.mp4 " type="video/mp4">
+    </video>
+    <div class="header">
+        <div class="container">
+            <a href="{%url 'home'%}"id="logo">
+                <img src="../static/assets/logo.png">
+            </a>
+            <div class="tabs">
+                <ul>
+                    <li><a href="{%url 'home'%}" target="_blank">Home</a></li>
+                    <li><a href="{%url 'about'%}"target="_blank">About Us</a></li>
+                    <li><a href="{%url 'slider'%}"target="_blank">Back</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="instructions">
+       <p>BELOW GRAPH SHOWS THE TREND OF BRANCH IN PARTICULAR COLLEGE </p>
+       <p>SCROLL DOWN AFTER SUBMITTING TO EXPLORE!</p> 
+       
+    </div>
+<div id="glass">
+    <form method="POST">
+        {% csrf_token %}
+        <label for="college_name">College Name:</label>
+        <input type="text" id="college_name" name="college_name" required><br>
+
+        <label for="branch">Branch:</label>
+        <input type="text" list="branches" id="branch" name="branch">
+        <datalist id="branches" >
+            <option value="Civil Engineering (4 Years, Bachelor of Technology)">
+            <option value="Civil Engineering and M. Tech. in Structural Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Civil Engineering and M.Tech in Transportation Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Computer Science and Engineering (4 Years, Bachelor of Technology)">
+            <option value="Electrical Engineering (4 Years, Bachelor of Technology)">
+            <option value="Electronics and Communication Engineering (4 Years, Bachelor of Technology)">
+            <option value="Mechanical Engineering (4 Years, Bachelor of Technology)">
+            <option value="Mechanical Engineering and M. Tech. in Mechanical System Design (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Mechanical Engineering and M. Tech. in Thermal Science & Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Metallurgical and Materials Engineering (4 Years, Bachelor of Technology)">
+            <option value="Aerospace Engineering (4 Years, Bachelor of Technology)">
+            <option value="Chemical Engineering (4 Years, Bachelor of Technology)">
+            <option value="Chemistry (4 Years, Bachelor of Science)">
+            <option value="Electrical Engineering with M.Tech. in Communications and Signal Processing (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Electrical Engineering with M.Tech. in Microelectronics (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Energy Engineering with M.Tech. in Energy Systems Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Engineering Physics (4 Years, Bachelor of Technology)">
+            <option value="Engineering Physics and M.Tech. with specialization in Nano Science (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Mechanical Engineering and M.Tech. in Computer Integrated Manufacturing (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Metallurgical Engineering and Materials Science (4 Years, Bachelor of Technology)">
+            <option value="Metallurgical Engineering and Materials Science with M.Tech. in Ceramics and Composites (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Metallurgical Engineering and Materials Science with M.Tech. in Metallurgical Process Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Biochemical Engineering and Biotechnology (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Biotechnology and Biochemical Engineering (4 Years, Bachelor of Technology)">
+            <option value="Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Computer Science and Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Electrical Engineering (Power and Automation) (4 Years, Bachelor of Technology)">
+            <option value="Mathematics and Computing (4 Years, Bachelor of Technology)">
+            <option value="Mathematics and Computing (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Production and Industrial Engineering (4 Years, Bachelor of Technology)">
+            <option value="Textile Technology (4 Years, Bachelor of Technology)">
+            <option value="Aerospace Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Agricultural and Food Engineering (4 Years, Bachelor of Technology)">
+            <option value="Agricultural and Food Engineering with M.Tech. in any of the listed specializations (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Applied Geology (5 Years, Integrated Master of Science)">
+            <option value="Architecture  (5 Years, Bachelor of Architecture)">
+            <option value="Biotechnology and Biochemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Chemistry (5 Years, Integrated Master of Science)">
+            <option value="Civil Engineering with any of the listed specialization (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Economics (5 Years, Integrated Master of Science)">
+            <option value="Electrical Engineering with M.Tech. in any of the listed specializations (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Electronics and Electrical Communication Engineering (4 Years, Bachelor of Technology)">
+            <option value="Electronics and Electrical Communication Engineering with M.Tech. in any of the listed specializations (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Exploration Geophysics (5 Years, Integrated Master of Science)">
+            <option value="Industrial and Systems Engineering (4 Years, Bachelor of Technology)">
+            <option value="Industrial and Systems Engineering with M.Tech. in Industrial and Systems Engineering and Management (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Instrumentation Engineering (4 Years, Bachelor of Technology)">
+            <option value="Manufacturing Science and Engineering (4 Years, Bachelor of Technology)">
+            <option value="Manufacturing Science and Engineering with M.Tech. in Industrial and Systems Engineering and Management (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Mathematics and Computing (5 Years, Integrated Master of Science)">
+            <option value="Mechanical Engineering with M.Tech. in any of the listed specializations (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Metallurgical and Materials Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Mining Engineering  (4 Years, Bachelor of Technology)">
+            <option value="Mining Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Mining Safety Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Ocean Engineering and Naval Architecture (4 Years, Bachelor of Technology)">
+            <option value="Ocean Engineering and Naval Architecture (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Physics (5 Years, Integrated Master of Science)">
+            <option value="Quality Engineering Design and Manufacturing (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Engineering Science (4 Years, Bachelor of Technology)">
+            <option value="Materials Science and Metallurgical Engineering (4 Years, Bachelor of Technology)">
+            <option value="Biological Sciences and Bioengineering (4 Years, Bachelor of Technology)">
+            <option value="Earth Sciences (4 Years, Bachelor of Science)">
+            <option value="Economics (4 Years, Bachelor of Science)">
+            <option value="Materials Science and Engineering (4 Years, Bachelor of Technology)">
+            <option value="Mathematics and Scientific Computing (4 Years, Bachelor of Science)">
+            <option value="Physics (4 Years, Bachelor of Science)">
+            <option value="Biological Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Biological Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))">
+            <option value="Civil Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Electrical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Engineering Design (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Mechanical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Naval Architecture and Ocean Engineering (4 Years, Bachelor of Technology)">
+            <option value="Naval Architecture and Ocean Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Physics (5 Years, Bachelor of Science and Master of Science (Dual Degree))">
+            <option value="Applied Mathematics (5 Years, Integrated Master of Science)">
+            <option value="Bio Technology (4 Years, Bachelor of Technology)">
+            <option value="Geological Technology (5 Years, Integrated Master of Technology)">
+            <option value="Geophysical Technology (5 Years, Integrated Master of Technology)">
+            <option value="Polymer Science and Engineering (4 Years, Bachelor of Technology)">
+            <option value="Applied Geology (5 Years, Integrated Master of Technology)">
+            <option value="Applied Geophysics (5 Years, Integrated Master of Technology)">
+            <option value="Electronics and Instrumentation Engineering (4 Years, Bachelor of Technology)">
+            <option value="Environmental Engineering (4 Years, Bachelor of Technology)">
+            <option value="Mathematics and Computing (5 Years, Integrated Master of Technology)">
+            <option value="Mineral Engineering (4 Years, Bachelor of Technology)">
+            <option value="Mining Machinery Engineering (4 Years, Bachelor of Technology)">
+            <option value="Petroleum Engineering (4 Years, Bachelor of Technology)">
+            <option value="Biochemical Engineering with M.Tech. in Biochemical Engineering and Biotechnology (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Bioengineering with M.Tech in Biomedical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Ceramic Engineering (4 Years, Bachelor of Technology)">
+            <option value="Ceramic Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Civil and Environmental Engineering (4 Years, Bachelor of Technology)">
+            <option value="Civil Engineering with any of the listed specialization (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Computer Science and Engineering with M.Tech. in Software Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Electrical Engineering with M.Tech. in Information and Communication Technology (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Mechanical Engineering with M.Tech. in Manufacturing and Precision Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+            <option value="Metallurgical and Materials Engineering with M.Tech. in Metallurgical and Materials Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))">
+        </datalist><br>
+
+        <label for="seatty">Seat Type:</label>
+        <select id="seatty" name="seatty">
+            <option value="OPEN">OPEN</option>
+            <option value="EWS">EWS</option>
+            <option value="OBC-NCL">OBC-NCL</option>
+            <option value="ST">ST</option>
+            <option value="SC">SC</option>
+            <option value="OPEN (PwD)">OPEN (PwD)</option>
+            <option value="EWS (PwD)">EWS (PwD)</option>
+            <option value="OBC-NCL (PwD)">OBC-NCL (PwD)</option>
+            <option value="SC (PwD)">SC (PwD)</option>
+            <option value="ST (PwD)">ST (PwD)</option>
+        </select><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+
+        <label for="quota">Quota:</label>
+        <select id="quota" name="quota">
+            <option value="AI">AI</option>
+            <option value="HS">HS</option>
+            <option value="OS">OS</option>
+        </select><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if graph %}
+       
+        <div id="plotly-graph">
+            {{ graph|safe }}  <!-- Render the Plotly graph here -->
+        </div>
+    {% endif %}
+        
+
+    <br><br>
+        <div id="trend-plot">
+            {{ round_graph|safe }}  <!-- Render the trend plot here -->
+        </div>
+    
+</div>
+
+    <!-- Include JavaScript for hover functionality -->
+    <script>
+        var myPlot = document.getElementsByClassName('plotly-graph-div')[0];
+
+        myPlot.on('plotly_hover', function(data){
+            var index = data.points[0].curveNumber;
+            Plotly.restyle(myPlot, 'opacity', Array.from({length: data.points.length}, (_, i) => i === index ? 1 : 0.2));
+        });   
+    </script>
+
+</div>
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Branch and College Trend over Years</title>
+    <!-- Include Plotly.js library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Enter Details to See Trend of Branch in College over Years</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="college_name">College Name:</label>
+        <input type="text" id="college_name" name="college_name" required><br>
+
+        <label for="branch">Branch:</label>
+        <input type="text" id="branch" name="branch" required><br>
+
+        <label for="seatty">Seat Type:</label>
+        <input type="text" id="seatty" name="seatty" required><br>
+
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender" required><br>
+
+        <label for="quota">Quota:</label>
+        <input type="text" id="quota" name="quota" required><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if graph %}
+        <h2>Average Rank of {{ branch }} in {{ college_name }} over Years</h2>
+        <div id="plotly-graph">
+            {{ graph|safe }}  <!-- Render the Plotly graph here -->
+        </div>
+    {% endif %}
+</body>
+</html> {% endcomment %}

@@ -1,0 +1,332 @@
+body{
+    background-color: black;
+}
+#video{
+    position: fixed;
+    left: -20%;
+    top: -20%;
+    max-height: 150%;
+    z-index: -1;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 97%;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#logo{
+    margin-left: 10px;
+}
+.tabs ul{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 10px;
+    list-style: none;
+}
+.tabs ul li a{
+    text-decoration: none;
+    padding: 0px 16px;
+    font-weight: bold;
+    font-family: "Advent Pro", sans-serif;
+    color: white;
+    cursor: pointer;
+}
+.tabs ul li a:hover{
+    color: #0c8b46;
+    font-size: larger;
+}
+.tabs ul li a:active{
+    color: #0c8b46;
+    text-decoration: underline;
+}
+li{
+    font-size: 1.5em;
+}
+#glass {
+    position: absolute;
+    height: 75%;
+    width: 90%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1vh;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    top: 22%;
+    left: 5%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;   
+}
+#glass::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+#glass::-webkit-scrollbar-thumb {
+    background: rgba(12, 139, 70, 0.8);
+    border-radius: 10px;
+    border: 2px solid transparent; 
+}
+#glass {
+    scrollbar-color: rgba(12, 139, 70, 0.8) rgba(255, 255, 255, 0.1);
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    font-weight: 700;
+    font-family: "Advent Pro", sans-serif;
+}
+label {
+    font-size: 1.2em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: azure;
+    position: relative;
+    left:25vw;
+    top:2.5vw;
+}
+
+
+input[type="text"] {
+   
+    font-size: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width:25%;
+    height: 25px;
+    position: relative;
+    left:43vw;
+
+}
+select{
+    width:25%;
+    height: 20px;
+    position: relative;
+    left:43vw;
+}
+#state{
+    width: 25%;
+    height: 25px;
+}
+#seatty,#gender, #year{
+    width: 25%;
+    height: 20px;
+    position: relative;
+    border-radius: 1vh;
+    left:43vw;
+}
+option{
+    font-size: 1.5em;
+    border: 1px solid #0f0f0f;
+    font-weight: bold;
+    font-family: "Advent Pro", sans-serif;
+    height:35%;
+    width:20%;
+}
+
+
+
+
+button {
+    padding: 10px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 25%;
+    height:35%;
+    position: relative;
+    text-align: center;
+    left:35vw;
+    top:2vw;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+table {
+    width: 90%;
+    border-collapse: collapse;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 4vw;
+    position: relative;
+    top:3vw;
+    font-size: 1.25em;
+    font-weight: 600;
+}
+th{
+    color:#fff;
+}
+td {
+    padding: 10px;
+    border: 1px solid #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    color:#fff;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.123); 
+}
+
+tr:hover {
+    background-color: rgba(12, 139, 70, 0.3);
+}
+
+
+
+@media (max-width: 700px){
+    .container {
+        width: 100%;
+        margin: 10px auto;
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .tabs li a {
+        font-size: 19px;
+        text-align: center;
+    }
+    .tabs ul {
+        flex-wrap: wrap-reverse;
+    }
+    .tabs ul li a {
+        font-style: normal;
+        font-size: 15px;
+    }
+    input[type="text"] {
+        width: 50%;
+        left: 25vw;
+    }
+    #state, #seatty, #year, #gender{
+        width: 50%;
+        left: 25vw;
+    }
+    table{
+        font-size: 1em;
+    }
+}
+
+/* home.css */
+
+/* body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Kanit', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
+#video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.header {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#logo img {
+    height: 50px;
+}
+
+.tabs ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.tabs ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#glass {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+} */

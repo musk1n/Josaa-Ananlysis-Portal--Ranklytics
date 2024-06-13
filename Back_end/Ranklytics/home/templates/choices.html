@@ -1,0 +1,191 @@
+
+
+
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choices</title>
+    <link rel="icon" href="../static/icon1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../static/choices.css">
+    
+    
+</head>
+<body>
+    <video id="video" autoplay muted loop>
+        <source src="../static/greeny.mp4 " type="video/mp4">
+    </video>
+    <div class="header">
+        <div class="container">
+            <a href="{%url 'home'%}"id="logo">
+                <img src="../static/assets/logo.png">
+            </a>
+            <div class="tabs">
+                <ul>
+                    <li><a href="{%url 'home'%}"target="_blank">Home</a></li>
+                    <li><a href="{%url 'about'%}"target="_blank">About Us</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="glass">
+        <form method="get" action="">
+            <label for="adv_rank">Enter Advanced Rank:</label>
+            <input type="text" id="adv_rank" name="adv_rank" placeholder="Write NA if none">
+            
+            
+            <label for="mains_rank">Enter Mains Rank:</label>
+            <input type="text" id="mains_rank" name="mains_rank">
+            
+            <label for="seatty">Select Seat Type:</label>
+            <select id="seatty" name="seatty">
+                <option value="OPEN">OPEN</option>
+                <option value="EWS">EWS</option>
+                <option value="OBC-NCL">OBC-NCL</option>
+                <option value="ST">ST</option>
+                <option value="SC">SC</option>
+                <option value="OPEN (PwD)">OPEN (PwD)</option>
+                <option value="EWS (PwD)">EWS (PwD)</option>
+                <option value="OBC-NCL (PwD)">OBC-NCL (PwD)</option>
+                <option value="SC (PwD)">SC (PwD)</option>
+                <option value="ST (PwD)">ST (PwD)</option>
+            </select>
+
+            <label for="year">Select Year</label>
+                <!-- Add an event listener to the year select element -->
+            <select id="year" name="year" onchange="updateGenderOptions()">
+                
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+            </select>
+            
+            <label for="gender">Select Gender:</label>
+            <select id="gender" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            
+            <label for="state">Enter State:</label>
+            <input type="text" id="state" name="state" list="states">
+            <datalist id="states">
+                <option value="Punjab">
+                <option value="Rajasthan">
+                <option value="Madhya Pradesh">
+                <option value="Uttar Pradesh">
+                <option value="Tripura">
+                <option value="Kerala">
+                <option value="Delhi (NCT)">
+                <option value="Chandigarh (UT)">
+                <option value="West Bengal">
+                <option value="Goa">
+                <option value="Daman & Diu (UT)">
+                <option value="Dadra & Nagar Haveli (UT)">
+                <option value="Lakshadweep (UT)">
+                <option value="Himachal Pradesh">
+                <option value="Karnataka">
+                <option value="Meghalaya">
+                <option value="Nagaland">
+                <option value="Bihar">
+                <option value="Puducherry (UT)">
+                <option value="Andaman & Nicobar Islands (UT)">
+                <option value="Chhattisgarh">
+                <option value="Sikkim">
+                <option value="Arunachal Pradesh">
+                <option value="Jharkhand">
+                <option value="Haryana">
+                <option value="Manipur">
+                <option value="Mizoram">
+                <option value="Odisha">
+                <option value="Assam">
+                <option value="Jammu & Kashmir (UT)">
+                <option value="Ladakh (UT)">
+                <option value="Tamil Nadu">
+                <option value="Uttarakhand">
+                <option value="Telangana">
+                <option value="Gujarat">
+                <option value="Maharashtra">
+                <option value="Andhra Pradesh">
+                <option value="Chandigarh (UT)">
+                <option value="Arunachal Pradesh">
+                <option value="Assam">
+                <option value="Meghalaya">
+                <option value="Manipur">
+                <option value="Mizoram">
+                <option value="Nagaland">
+                <option value="Sikkim">
+                <option value="Tripura">
+            </datalist>
+            
+            
+            
+            
+            <button type="submit">Submit</button>
+        </form>
+    
+        {% if error %}
+            <p style="color: white; font-size:1em;">{{ error }}</p>
+        {% endif %}
+    
+        {% if choices %}
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Institute</th>
+                        <th>Academic Program Name</th>
+                        <th>Opening Rank</th>
+                        <th>Closing Rank</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for choice in choices %}
+                        <tr>
+                            <td>{{ choice.Institute}}</td>
+                            <td>{{ choice.AcademicProgram }}</td>
+                            <td>{{ choice.OpeningRank }}</td>
+                            <td>{{ choice.ClosingRank }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p style="color:white;font-size:1em;">No choices available for this rank.</p>
+        {% endif %}
+        
+            
+        </div>
+    </div>
+
+<!-- Add a script tag to include JavaScript code -->
+<script>
+    // Function to update gender options based on the selected year
+    function updateGenderOptions() {
+        var yearSelect = document.getElementById("year");
+        var genderSelect = document.getElementById("gender");
+        var selectedYear = parseInt(yearSelect.value);
+
+        // If the selected year is before 2018, set gender to male only
+        if (selectedYear < 2018) {
+            genderSelect.innerHTML = '<option value="Male">Male</option>';
+        } else {
+            // Otherwise, allow both male and female options
+            genderSelect.innerHTML = '<option value="Male">Male</option><option value="Female">Female</option>';
+        }
+    }
+</script>
+
+</body>
+</html>
